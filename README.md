@@ -44,7 +44,7 @@ GitLite currently implements a single command: `clone`.
 
 ```bash
 # If installed via Homebrew
-gitlite clone <github repo url>
+clone <github repo url>
 
 # From source (script)
 ./your_program.sh clone <github repo url>
