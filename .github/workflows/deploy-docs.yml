@@ -34,7 +34,8 @@ jobs:
         uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: website/build/gitlite
+          # Publish the entire build directory so /gitlite/* paths resolve
+          publish_dir: website/build
           publish_branch: gh-pages
 
 
