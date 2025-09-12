@@ -19,22 +19,19 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: '20'
-          cache: 'npm'
-          cache-dependency-path: website/package.json
 
       - name: Install deps
         working-directory: website
-        run: npm ci || npm i
+        run: npm install --no-audit --no-fund
 
       - name: Build website
         working-directory: website
-        run: npx docusaurus build
+        run: npm run build
 
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          # Publish the entire build directory so /gitlite/* paths resolve
           publish_dir: website/build
           publish_branch: gh-pages
 
