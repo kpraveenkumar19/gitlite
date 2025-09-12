@@ -30,7 +30,6 @@ Requirements:
 - Java 17+
 - Maven 3.8+
 
-Steps:
 ```bash
 git clone <github repo url>
 cd GitLite
@@ -64,17 +63,6 @@ Limitations (current):
 
 - Java 17 (standard library)
 - Maven (build)
-- `java.net.http.HttpClient` (Smart HTTP)
-- zlib inflate/deflate (`Inflater`, `DeflaterOutputStream`)
-- SHA-1 hashing (`MessageDigest`)
-
-### Project Structure
-
-```text
-src/main/java/Main.java   # CLI entrypoint and Git protocol/pack logic
-pom.xml                   # Maven configuration
-your_program.sh           # Build-and-run helper script
-```
 
 ### Contributing
 
