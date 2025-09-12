@@ -44,7 +44,7 @@ GitLite currently implements a single command: `clone`.
 
 ```bash
 # If installed via Homebrew
-clone <github repo url>
+gitlite clone <github repo url>
 
 # From source (script)
 ./your_program.sh clone <github repo url>
@@ -101,5 +101,10 @@ Development tips:
 ### License
 
 This repository does not currently include a license file. If you plan to use this project beyond local experimentation, please open an issue to discuss licensing or submit a PR adding a `LICENSE` file (e.g., MIT/Apache-2.0).
+ 
+### Documentation
+
+Published docs (GitHub Pages): when deployed, they will be available at `https://kpraveenkumar19.github.io/gitlite/docs/git-protocol/intro`.
+
 
 
