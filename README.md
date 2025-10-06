@@ -3,7 +3,7 @@
   GitLite
 </h1>
 
-GitLite is a simple tool to download a Git repository with single command. It focuses on a implementation of git client over Smart HTTP in Java. It’s simple, fast and aimed at basic use. It uses Git’s Smart HTTP protocol along with Git object handling under the hood and writes files directly without any ZIP downloads or extraction. 
+GitLite is a simple tool to download a Git repository with single command. It focuses on a implementation of git client using [Git's Smart HTTP](https://git-scm.com/docs/http-protocol) in Java. It’s simple, fast and aimed at basic use. It uses Git’s Smart HTTP protocol along with [Git object](https://git-scm.com/book/en/v2/Git-Internals-Git-Objects) handling under the hood and writes files directly without any ZIP downloads or extraction. 
 
 ### Table of Contents
 - [Installation](#installation)
@@ -25,6 +25,8 @@ GitLite implements a single command: `clone`.
 
 ```bash
 # If installed via Homebrew (global command)
+clone <Github URL>
+# Example : 
 clone https://github.com/octocat/Hello-World
 
 # Result:
