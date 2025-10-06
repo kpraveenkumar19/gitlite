@@ -25,10 +25,7 @@ GitLite implements a single command: `clone`.
 
 ```bash
 # If installed via Homebrew (global command)
-clone https://github.com/octocat/Hello-World.git
-
-# Or run locally without installing
-./your_program.sh clone https://github.com/octocat/Hello-World.git
+clone https://github.com/octocat/Hello-World
 
 # Result:
 # - Repository folder: ~/Downloads/Hello-World
