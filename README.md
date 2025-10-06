@@ -1,12 +1,27 @@
 ## GitLite
 
-Minimal Git client implemented in Java. GitLite speaks the Smart HTTP protocol, negotiates and downloads Git packfiles, parses objects (with REF_DELTA support), writes them to a `.git` object store, and checks out a working tree — all without shelling out to the `git` binary.
+Minimal Git client implemented in Java. GitLite speaks the Smart HTTP protocol, negotiates and downloads Git packfiles, parses objects, writes them to a `.git` object store, and checks out a working tree — all without shelling out to the `git` binary.
+
+### Table of Contents
+- [Project Description](#project-description)
+- [Features](#features)
+- [Installation](#installation)
+- [Usage](#usage)
+- [Resources](#resources)
+- [Contributing](#contributing)
+
+### Project Description
+GitLite focuses on a lean, educational implementation of `git clone` over Smart HTTP:
+- Discovers refs via `info/refs?service=git-upload-pack`
+- Negotiates and fetches pack data (`side-band-64k`)
+- Parses commit/tree/blob/tag objects (with REF_DELTA support)
+- Writes loose objects under `.git/objects/`
+- Reconstructs the working tree directly from tree/blob objects
 
 ### Features
-
 - **Clone over Smart HTTP**: Uses `info/refs?service=git-upload-pack` and `git-upload-pack` with `side-band-64k`.
 - **Packfile parsing**: Reads PACK streams and materializes objects locally.
-- **Delta support**: Handles REF_DELTA objects; OFS_DELTA is not supported yet.
+- **Delta support**: Supports REF_DELTA objects; OFS_DELTA is not supported yet.
 - **Object store writing**: Stores objects as loose objects under `.git/objects/`.
 - **Refs and HEAD**: Writes fetched refs and a direct `HEAD` to the target commit.
 - **Working tree checkout**: Reconstructs files from tree/blob objects into the destination directory.
@@ -14,22 +29,13 @@ Minimal Git client implemented in Java. GitLite speaks the Smart HTTP protocol, 
 
 ### Installation
 
-You can install GitLite via Homebrew or build from source.
-
-#### Option 1: Homebrew
-
+Install via Homebrew:
 ```bash
 brew tap kpraveenkumar19/gl
 brew install gitlite
-clone <github repo url>
 ```
 
-#### Option 2: Build from source
-
-Requirements:
-- Java 17+
-- Maven 3.8+
-
+Optional: Build from source (Java 17+, Maven 3.8+):
 ```bash
 git clone <github repo url>
 cd GitLite
@@ -42,33 +48,32 @@ mvn -q -DskipTests package
 GitLite currently implements a single command: `clone`.
 
 ```bash
-# If installed via Homebrew
+# If installed via Homebrew (global command)
 clone <github repo url>
 
-# From source (script)
+# From source (helper script)
 ./your_program.sh clone <github repo url>
 ```
 
-Behavior and defaults:
-- **Destination**: Clones into `~/Downloads/<repo-name>`.
-- **Protocols**: HTTP/HTTPS Smart HTTP endpoints.
-- **HEAD**: Written as a direct commit hash (not a symbolic ref).
+Defaults and behavior:
+- **Destination directory**: `~/Downloads/<repo-name>`
+- **Protocols**: HTTP/HTTPS (Smart HTTP)
+- **HEAD**: Written as a direct commit hash (not a symbolic ref)
 
-Limitations (current):
-- OFS_DELTA pack entries are not supported.
-- No authentication (public repositories only).
-- No shallow clones, branches/checkout commands, push, or fetch updates beyond initial clone.
+Current limitations:
+- OFS_DELTA entries are not yet supported
+- No authentication (public repositories only)
+- No shallow clone, branch checkout, push, or incremental fetch
 
-### Technologies Used
-
-- Java 17 (standard library)
-- Maven (build)
+### Resources
+- [Git Objects](https://git-scm.com/book/en/v2/Git-Internals-Git-Objects)
+- [Git Protocol (blog post)](https://i27ae15.github.io/git-protocol-doc/docs/git-protocol/intro)
+- [Git HTTP protocol](https://git-scm.com/docs/http-protocol)
 
 ### Contributing
-
 Contributions are welcome!
 
-1. Fork the repository and create your feature branch:
+1. Fork the repository and create a feature branch:
    ```bash
    git checkout -b feature/your-feature
    ```
@@ -78,21 +83,11 @@ Contributions are welcome!
    ```
 3. Commit your changes with a clear message:
    ```bash
-   git commit -m "feat: add <short-description>"
+   git commit -m "Add <short-description>"
    ```
 4. Push the branch and open a Pull Request.
 
 Development tips:
-- Prefer Java 17+.
-- Keep code readable and well-factored; avoid unnecessary complexity.
-
-### License
-
-This repository does not currently include a license file. If you plan to use this project beyond local experimentation, please open an issue to discuss licensing or submit a PR adding a `LICENSE` file (e.g., MIT/Apache-2.0).
- 
-### Documentation
-
-Published docs (GitHub Pages): when deployed, they will be available at `https://kpraveenkumar19.github.io/gitlite/docs/git-protocol/intro`.
-
-
+- Target Java 17+
+- Keep code readable and well-factored; avoid unnecessary complexity
 
