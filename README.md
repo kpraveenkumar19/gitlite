@@ -3,7 +3,7 @@
   GitLite
 </h1>
 
-GitLite is a simple tool to download a Git repository with single command. It focuses on a implementation of git client over Smart HTTP in Java. Run `clone <github repo url>` and it puts the project in your Downloads folder. It’s simple, fast and aimed at basic use. It uses Git’s Smart HTTP protocol along with Git object handling under the hood and writes files directly without any ZIP downloads or extraction. 
+GitLite is a simple tool to download a Git repository with single command. It focuses on a implementation of git client over Smart HTTP in Java. It’s simple, fast and aimed at basic use. It uses Git’s Smart HTTP protocol along with Git object handling under the hood and writes files directly without any ZIP downloads or extraction. 
 
 ### Table of Contents
 - [Installation](#installation)
