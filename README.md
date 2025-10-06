@@ -1,6 +1,6 @@
 ## GitLite
 
-Minimal Git client implemented in Java. GitLite speaks the Smart HTTP protocol, negotiates and downloads Git packfiles, parses objects, writes them to a `.git` object store, and checks out a working tree — all without shelling out to the `git` binary.
+GitLite is a simple tool to download a Git repository with one command. Run `clone <github repo url>` and it puts the project in your Downloads folder. It uses Git’s Smart HTTP protocol under the hood and writes files directly—no ZIP downloads or extraction.
 
 ### Table of Contents
 - [Project Description](#project-description)
@@ -33,14 +33,6 @@ Install via Homebrew:
 ```bash
 brew tap kpraveenkumar19/gl
 brew install gitlite
-```
-
-Optional: Build from source (Java 17+, Maven 3.8+):
-```bash
-git clone <github repo url>
-cd GitLite
-mvn -q -DskipTests package
-./your_program.sh clone <github repo url>
 ```
 
 ### Usage
