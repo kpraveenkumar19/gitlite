@@ -1,31 +1,15 @@
-## GitLite
+<h1>
+  <img src="assets/images/icon.png" alt="Gitlite icon" width="38" height="38" style="vertical-align: -0.25em; margin-right: 8px;" />
+  GitLite
+</h1>
 
-GitLite is a simple tool to download a Git repository with one command. Run `clone <github repo url>` and it puts the project in your Downloads folder. It uses Git’s Smart HTTP protocol under the hood and writes files directly—no ZIP downloads or extraction.
+GitLite is a simple tool to download a Git repository with single command. It focuses on a implementation of git client over Smart HTTP in Java. Run `clone <github repo url>` and it puts the project in your Downloads folder. It’s simple, fast and aimed at basic use. It uses Git’s Smart HTTP protocol along with Git object handling under the hood and writes files directly without any ZIP downloads or extraction. 
 
 ### Table of Contents
-- [Project Description](#project-description)
-- [Features](#features)
 - [Installation](#installation)
 - [Usage](#usage)
 - [Resources](#resources)
 - [Contributing](#contributing)
-
-### Project Description
-GitLite focuses on a lean, educational implementation of `git clone` over Smart HTTP:
-- Discovers refs via `info/refs?service=git-upload-pack`
-- Negotiates and fetches pack data (`side-band-64k`)
-- Parses commit/tree/blob/tag objects (with REF_DELTA support)
-- Writes loose objects under `.git/objects/`
-- Reconstructs the working tree directly from tree/blob objects
-
-### Features
-- **Clone over Smart HTTP**: Uses `info/refs?service=git-upload-pack` and `git-upload-pack` with `side-band-64k`.
-- **Packfile parsing**: Reads PACK streams and materializes objects locally.
-- **Delta support**: Supports REF_DELTA objects; OFS_DELTA is not supported yet.
-- **Object store writing**: Stores objects as loose objects under `.git/objects/`.
-- **Refs and HEAD**: Writes fetched refs and a direct `HEAD` to the target commit.
-- **Working tree checkout**: Reconstructs files from tree/blob objects into the destination directory.
-- **Simple CLI**: `clone <repo-url>`.
 
 ### Installation
 
@@ -37,25 +21,20 @@ brew install gitlite
 
 ### Usage
 
-GitLite currently implements a single command: `clone`.
+GitLite implements a single command: `clone`.
 
 ```bash
 # If installed via Homebrew (global command)
 clone <github repo url>
-
-# From source (helper script)
-./your_program.sh clone <github repo url>
 ```
 
 Defaults and behavior:
 - **Destination directory**: `~/Downloads/<repo-name>`
 - **Protocols**: HTTP/HTTPS (Smart HTTP)
-- **HEAD**: Written as a direct commit hash (not a symbolic ref)
 
 Current limitations:
-- OFS_DELTA entries are not yet supported
-- No authentication (public repositories only)
-- No shallow clone, branch checkout, push, or incremental fetch
+- public repositories only
+- No other implemention of git commands
 
 ### Resources
 - [Git Objects](https://git-scm.com/book/en/v2/Git-Internals-Git-Objects)
@@ -63,23 +42,15 @@ Current limitations:
 - [Git HTTP protocol](https://git-scm.com/docs/http-protocol)
 
 ### Contributing
-Contributions are welcome!
 
-1. Fork the repository and create a feature branch:
-   ```bash
-   git checkout -b feature/your-feature
-   ```
-2. Build locally:
-   ```bash
-   mvn -q -DskipTests package
-   ```
-3. Commit your changes with a clear message:
-   ```bash
-   git commit -m "Add <short-description>"
-   ```
-4. Push the branch and open a Pull Request.
+Contributions are welcome! To propose changes:
 
-Development tips:
-- Target Java 17+
-- Keep code readable and well-factored; avoid unnecessary complexity
+1. Fork the repository and create a feature branch
+2. Make your changes
+3. Open a Pull Request with a clear description and examples
+
+Guidelines:
+- Keep the implementation minimal and readable
+- Prefer small, focused changes with clear commit messages
+- Document user-facing behavior in this README when adding features
 
