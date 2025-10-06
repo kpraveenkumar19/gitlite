@@ -29,7 +29,6 @@ clone https://github.com/octocat/Hello-World
 
 # Result:
 # - Repository folder: ~/Downloads/Hello-World
-# - Working tree is checked out from the default branch
 ```
 
 ### Resources
@@ -45,8 +44,4 @@ Contributions are welcome! To propose changes:
 2. Make your changes
 3. Open a Pull Request with a clear description and examples
 
-Guidelines:
-- Keep the implementation minimal and readable
-- Prefer small, focused changes with clear commit messages
-- Document user-facing behavior in this README when adding features
 
