@@ -25,16 +25,15 @@ GitLite implements a single command: `clone`.
 
 ```bash
 # If installed via Homebrew (global command)
-clone <github repo url>
+clone https://github.com/octocat/Hello-World.git
+
+# Or run locally without installing
+./your_program.sh clone https://github.com/octocat/Hello-World.git
+
+# Result:
+# - Repository folder: ~/Downloads/Hello-World
+# - Working tree is checked out from the default branch
 ```
-
-Defaults and behavior:
-- **Destination directory**: `~/Downloads/<repo-name>`
-- **Protocols**: HTTP/HTTPS (Smart HTTP)
-
-Current limitations:
-- public repositories only
-- No other implemention of git commands
 
 ### Resources
 - [Git Objects](https://git-scm.com/book/en/v2/Git-Internals-Git-Objects)
