@@ -3,7 +3,7 @@
   Git Lite
 </h1>
 
-Git Lite is a simple tool to download a Git repository with single command. It focuses on a implementation of git client using Git's Smart HTTP in Java. It’s simple, fast and aimed at basic use. It uses [Git's Smart HTTP Protocol](https://git-scm.com/docs/http-protocol) along with [Git object](https://git-scm.com/book/en/v2/Git-Internals-Git-Objects) handling under the hood and writes files directly without any ZIP downloads or extraction. 
+Git Lite is a simple tool to download a Git repository with single command. It focuses on a implementation of git client using Git's Smart HTTP in Java. It’s simple, fast and aimed at basic use. It uses [Git's Smart HTTP Protocol](https://git-scm.com/docs/http-protocol){:target="_blank"} along with [Git object](https://git-scm.com/book/en/v2/Git-Internals-Git-Objects){:target="_blank"} handling under the hood and writes files directly without any ZIP downloads or extraction. 
 
 ### Table of Contents
 - [Installation](#installation)
@@ -34,9 +34,9 @@ clone https://github.com/octocat/Hello-World
 ```
 
 ### Resources
-- [Git Objects](https://git-scm.com/book/en/v2/Git-Internals-Git-Objects)
-- [Git Protocol (blog post)](https://i27ae15.github.io/git-protocol-doc/docs/git-protocol/intro)
-- [Git HTTP protocol](https://git-scm.com/docs/http-protocol)
+- [Git Objects](https://git-scm.com/book/en/v2/Git-Internals-Git-Objects){:target="_blank"}
+- [Git Protocol (blog post)](https://i27ae15.github.io/git-protocol-doc/docs/git-protocol/intro){:target="_blank"}
+- [Git HTTP protocol](https://git-scm.com/docs/http-protocol){:target="_blank"}
 
 ### Contributing
 
